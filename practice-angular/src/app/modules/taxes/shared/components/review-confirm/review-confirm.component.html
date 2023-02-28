@@ -1,46 +1,48 @@
-<h3 class="m-0">Tax Filling Detail</h3>
-<hr>
-<div class="row mb-3">
-  <div class="col-2">
-    <label class="bold">Type of filling</label>
-  </div>
-  <div class="col-10">
+<div *ngIf="formTaxModel">
+  <h3 class="m-0">Tax Filling Detail</h3>
+  <hr>
+  <div class="row mb-3">
+    <div class="col-2">
+      <label class="bold">Type of filing</label>
+    </div>
+    <div class="col-10">
+      {{formTaxModel.type_of_filling === 'ordinary' ? 'Ordinary Filing' : 'Additional Filing'}}
+    </div>
+    <div class="col-2">
+      <label class="bold">VAT Month</label>
+    </div>
+    <div class="col-10">
 
+    </div>
   </div>
-  <div class="col-2">
-    <label class="bold">VAT Month</label>
+  <h3 class="m-0 mt-4">Tax Computation</h3>
+  <hr>
+  <div class="row mb-3">
+    <div class="col-8">
+      <label class="bold">total value of taxable electronic service exclusive VAT</label>
+    </div>
+    <div class="col-4 text-end align-self-center">
+      1312313213123123123 THB
+    </div>
   </div>
-  <div class="col-10">
-
+  <div class="row mb-3">
+    <div class="col-8">
+      <label class="bold">Total VAT to be remitted</label>
+      <label>(7% of Total value of taxable electronic service exclusive VAT)</label>
+    </div>
+    <div class="col-4 text-end align-self-center">
+      13213123123123 THB
+    </div>
   </div>
+  <div class="row mb-3">
+    <div class="col-8">
+      <label class="bold">Total Amount Payable</label>
+    </div>
+    <div class="col-4 text-end align-self-center bold">
+      13213123123123 THB
+    </div>
+  </div>
+  <h3 class="m-0 mt-4">Declaration</h3>
+  <hr>
+  <label>I hereby certify that information given above are true and correct and agree to be bound by such information.</label>
 </div>
-<h3 class="m-0 mt-4">Tax Computation</h3>
-<hr>
-<div class="row mb-3">
-  <div class="col-8">
-    <label class="bold">total value of taxable electronic service exclusive VAT</label>
-  </div>
-  <div class="col-4 text-end align-self-center">
-    1312313213123123123 THB
-  </div>
-</div>
-<div class="row mb-3">
-  <div class="col-8">
-    <label class="bold">Total VAT to be remitted</label>
-    <label>(7% of Total value of taxable electronic service exclusive VAT)</label>
-  </div>
-  <div class="col-4 text-end align-self-center">
-    13213123123123 THB
-  </div>
-</div>
-<div class="row mb-3">
-  <div class="col-8">
-    <label class="bold">Total Amount Payable</label>
-  </div>
-  <div class="col-4 text-end align-self-center bold">
-    13213123123123 THB
-  </div>
-</div>
-<h3 class="m-0 mt-4">Declaration</h3>
-<hr>
-<label>I hereby certify that information given above are true and correct and agree to be bound by such information.</label>

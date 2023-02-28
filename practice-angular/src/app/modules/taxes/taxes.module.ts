@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { TaxesRoutingModule } from './taxes-routing.module';
-import { TaxFillingComponent } from './pages/tax-filling/tax-filling.component';
+import { TaxFilingComponent } from './pages/tax-filing/tax-filing.component';
 import { TaxInputDetailComponent } from './shared/components/tax-input-detail/tax-input-detail.component';
 import { ReviewConfirmComponent } from './shared/components/review-confirm/review-confirm.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -14,7 +14,7 @@ import { TaxDateComponent } from './shared/components/tax-date/tax-date.componen
 
 @NgModule({
   declarations: [
-    TaxFillingComponent,
+    TaxFilingComponent,
     TaxInputDetailComponent,
     ReviewConfirmComponent,
     TaxStepperComponent,

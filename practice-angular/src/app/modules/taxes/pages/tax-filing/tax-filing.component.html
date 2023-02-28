@@ -1,5 +1,5 @@
 <div class="container pt-5 pb-5">
-  <h1 class="text-center">Submit Tax Filling</h1>
+  <h1 class="text-center">Submit Tax Filing</h1>
 
   <app-tax-stepper class="mt-5" [currentStep]="currentStep">
   </app-tax-stepper>
@@ -8,7 +8,7 @@
     <ng-container [ngSwitch]="currentStep">
       <app-tax-input-detail *ngSwitchCase="1" [(formTaxModel)]="formTaxModel" [submitted]="submitted">
       </app-tax-input-detail>
-      <app-review-confirm *ngSwitchCase="2">
+      <app-review-confirm *ngSwitchCase="2" [formTaxModel]="formTaxModel.getRawValue()">
       </app-review-confirm>
     </ng-container>
   </div>

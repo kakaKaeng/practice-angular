@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-tax-filling',
-  templateUrl: './tax-filling.component.html',
-  styleUrls: ['./tax-filling.component.scss']
+  selector: 'app-tax-filing',
+  templateUrl: './tax-filing.component.html',
+  styleUrls: ['./tax-filing.component.scss']
 })
-export class TaxFillingComponent implements OnInit {
+export class TaxFilingComponent implements OnInit {
   currentStep = 2;
   formTaxModel: FormGroup
   submitted = false;

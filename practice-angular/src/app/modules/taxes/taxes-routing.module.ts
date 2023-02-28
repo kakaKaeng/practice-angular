@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TaxFillingComponent } from './pages/tax-filling/tax-filling.component';
+import { TaxFilingComponent } from './pages/tax-filing/tax-filing.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: TaxFillingComponent
+    component: TaxFilingComponent
   }
 ];
 
