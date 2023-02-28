@@ -1,22 +1,22 @@
 <div class="wrapper">
   <ol class="stepper">
-    <li class="stepper-item">
+    <li class="stepper-item" [ngClass]="currentStep === 2 ? 'step-item-line-active' : ''">
       <div class="d-flex justify-content-center flex-column">
-        <div class="step-item-circle m-auto d-flex">
-          <h3 class="m-auto">1</h3>
+        <div class="step-item-circle m-auto d-flex step-item-circle-active">
+          <h3 class="m-auto step-name-active">1</h3>
         </div>
       </div>
     </li>
     <li class="stepper-item">
       <div class="d-flex justify-content-center flex-column">
-        <div class="step-item-circle m-auto d-flex">
-          <h3 class="m-auto">2</h3>
+        <div class="step-item-circle m-auto d-flex" [ngClass]="currentStep === 2 ? 'step-item-circle-active' : ''">
+          <h3 class="m-auto" [ngClass]="currentStep === 2 ? 'step-name-active' : ''">2</h3>
         </div>
       </div>
     </li>
   </ol>
 </div>
-<div class="stepper-name d-flex justify-content-between">
-  <p class="ms-md-4">Input Detail</p>
-  <p class="ms-md-4">Reviews & Confirm</p>
+<div class="step-name d-flex justify-content-between">
+  <p class="ms-md-4 step-name-active">Input Detail</p>
+  <p class="ms-md-4" [ngClass]="currentStep === 2 ? 'step-name-active' : ''">Reviews & Confirm</p>
 </div>

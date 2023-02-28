@@ -7,6 +7,8 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./tax-filling.component.scss']
 })
 export class TaxFillingComponent implements OnInit {
+  currentStep = 1;
+
   constructor(private fb: FormBuilder) {
   }
 

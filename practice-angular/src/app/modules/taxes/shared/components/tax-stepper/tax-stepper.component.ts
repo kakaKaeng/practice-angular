@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-tax-stepper',
   templateUrl: './tax-stepper.component.html',
   styleUrls: ['./tax-stepper.component.scss']
 })
-export class TaxStepperComponent implements OnInit {
+export class TaxStepperComponent {
+  @Input() currentStep: number = 1
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
   }
 
 }
