@@ -4,4 +4,30 @@
   <app-tax-stepper class="mt-5" [currentStep]="currentStep">
   </app-tax-stepper>
 
+  <div class="container mt-2 p-4 content rounded">
+    <h3>1.Tax Filling Detail</h3>
+    <hr>
+    <form>
+      <div class="row mb-3">
+        <label class="col-12 mb-3 required">Type of filling</label>
+        <div class="d-flex">
+
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDisabled" id="ordinaryFiling">
+            <label class="form-check-label" for="ordinaryFiling">
+              Ordinary Filing
+            </label>
+          </div>
+          <div class="form-check ms-5">
+            <input class="form-check-input" type="radio" name="flexRadioDisabled" id="additionalFiling">
+            <label class="form-check-label" for="additionalFiling">
+              Additional Filing
+            </label>
+          </div>
+
+        </div>
+      </div>
+    </form>
+  </div>
+
 </div>

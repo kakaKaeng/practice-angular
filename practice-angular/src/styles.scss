@@ -9,3 +9,10 @@
 body {
   color: #2B3467;
 }
+
+.required {
+  &:after {
+    content: ' *';
+    color: red;
+  }
+}

@@ -1,4 +1,4 @@
-export interface TaxModels {
+export interface TaxModel {
   type_of_filling: 'ordinary' | 'additional';
   vat_date: Date;
   additional_type?: string;
