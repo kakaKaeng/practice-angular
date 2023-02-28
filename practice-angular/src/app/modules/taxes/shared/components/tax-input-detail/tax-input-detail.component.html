@@ -1,1 +1,81 @@
-<p>tax-input-detail works!</p>
+<form [formGroup]="formTaxModel">
+  <h3 class="m-0">1.Tax Filling Detail</h3>
+  <hr>
+  <div class="row mb-3">
+    <label class="col-12 mb-3 required">Type of filling</label>
+    <div class="d-flex">
+      <div class="form-check">
+        <input class="form-check-input pointer" type="radio"
+               name="type_of_filling" id="ordinaryFiling"
+               formControlName="type_of_filling" value="ordinary">
+        <label class="form-check-label pointer" for="ordinaryFiling">
+          Ordinary Filing
+          <i class="fa-solid fa-circle-question" tooltip="Ordinary Filing"></i>
+        </label>
+      </div>
+      <div class="form-check ms-5">
+        <input class="form-check-input pointer" type="radio"
+               name="type_of_filling" id="additionalFiling"
+               formControlName="type_of_filling" value="additional">
+        <label class="form-check-label pointer" for="additionalFiling">
+          Additional Filing
+          <i class="fa-solid fa-circle-question" tooltip="Additional Filing"></i>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-5">
+    <div class="col-6">
+      <label class="col-12 mb-3 required">
+        {{formTaxModel.controls.type_of_filling.value === 'ordinary' ? 'VAT' : 'Tax'}} Month
+      </label>
+      <app-tax-date [(formGroup)]="formTaxModel"></app-tax-date>
+    </div>
+    <div class="col-6" *ngIf="formTaxModel.controls.type_of_filling.value === 'additional'">
+      <label class="col-12 mb-3 required">
+        Type
+      </label>
+      <ng-select formControlName="additional_type"
+                 [items]="mockTypeList"
+                 [clearable]="false"
+                 class="dropdown-select">
+      </ng-select>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-between">
+    <h3 class="m-0">2.Tax Computation</h3>
+    <a class="align-self-center pointer rate-link">View Exchange Rate</a>
+  </div>
+  <hr>
+  <div class="row mb-3">
+    <label class="col-12 mb-3 required bold">Provide total value taxable electronic service</label>
+  </div>
+  <div class="row mb-3">
+    <div class="col-8 align-self-center">
+      <label>1.Provide total value taxable electronic service</label>
+    </div>
+    <div class="col-4">
+      <div class="input-group">
+        <input class="form-control hide-border-right" formControlName="total_tax">
+        <div class="input-group-append">
+          <span class="input-group-text">THB</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-8 align-self-center">
+      <label>2.Total VAT to be remitted (7% of 1.)</label>
+    </div>
+    <div class="col-4">
+      <div class="input-group">
+        <input class="form-control hide-border-right" formControlName="total_vat">
+        <div class="input-group-append">
+          <span class="input-group-text">THB</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>
