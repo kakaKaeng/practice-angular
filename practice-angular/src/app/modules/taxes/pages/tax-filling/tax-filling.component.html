@@ -7,26 +7,37 @@
   <div class="container mt-2 p-4 content rounded">
     <h3>1.Tax Filling Detail</h3>
     <hr>
-    <form>
+    <form [formGroup]="formTaxModel">
       <div class="row mb-3">
         <label class="col-12 mb-3 required">Type of filling</label>
         <div class="d-flex">
-
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDisabled" id="ordinaryFiling">
-            <label class="form-check-label" for="ordinaryFiling">
+            <input class="form-check-input pointer" type="radio"
+                   name="type_of_filling" id="ordinaryFiling"
+                   formControlName="type_of_filling" value="ordinary">
+            <label class="form-check-label pointer" for="ordinaryFiling">
               Ordinary Filing
+              <i class="fa-solid fa-circle-question" tooltip="Ordinary Filing"></i>
             </label>
           </div>
           <div class="form-check ms-5">
-            <input class="form-check-input" type="radio" name="flexRadioDisabled" id="additionalFiling">
-            <label class="form-check-label" for="additionalFiling">
+            <input class="form-check-input pointer" type="radio"
+                   name="type_of_filling" id="additionalFiling"
+                   formControlName="type_of_filling" value="additional">
+            <label class="form-check-label pointer" for="additionalFiling">
               Additional Filing
+              <i class="fa-solid fa-circle-question" tooltip="Additional Filing"></i>
             </label>
           </div>
-
         </div>
       </div>
+      <div class="row mb-3">
+        <label class="col-12 mb-3 required">
+          {{formTaxModel.controls.type_of_filling.value === 'ordinary' ? 'VAT' : 'Tax'}} Month
+        </label>
+        <app-tax-date [(formGroup)]="formTaxModel"></app-tax-date>
+      </div>
+
     </form>
   </div>
 

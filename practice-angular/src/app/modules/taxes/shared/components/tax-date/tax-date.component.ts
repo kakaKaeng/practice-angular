@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { FormGroup } from '@angular/forms';
 
 export interface Dropdown {
   label: string;
@@ -12,10 +13,8 @@ export interface Dropdown {
   styleUrls: ['./tax-date.component.scss']
 })
 export class TaxDateComponent {
-  @Input() month!: number | null
-  @Output() monthChange = new EventEmitter<number | null>();
-  @Input() year!: number | null
-  @Output() yearChange = new EventEmitter<number | null>();
+  @Input() formGroup!: FormGroup;
+  @Output() formGroupChange = new EventEmitter<FormGroup>();
 
   monthList$: Observable<Dropdown[]>;
   yearList$: Observable<Dropdown[]>;
@@ -77,8 +76,16 @@ export class TaxDateComponent {
   validateMonth(months: Date[]):void {
     if (this.month) {
       if (months.length - 1 < this.month) {
-        this.month = null;
+        this.formGroup.controls.month.setValue(null);
       }
     }
+  }
+
+  get year() {
+    return this.formGroup?.controls.year.value;
+  }
+
+  get month() {
+    return this.formGroup?.controls.month.value;
   }
 }

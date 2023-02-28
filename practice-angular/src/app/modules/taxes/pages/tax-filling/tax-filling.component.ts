@@ -21,7 +21,8 @@ export class TaxFillingComponent implements OnInit {
   initFormTaxModel(): FormGroup {
     return this.fb.group({
       type_of_filling: ['ordinary', []],
-      vat_date: [null, []],
+      month: [null, []],
+      year: [null, []],
       additional_type: [null, []],
       total_tax: [null, []],
       total_vat: [null, []],

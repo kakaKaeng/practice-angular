@@ -1,20 +1,20 @@
-<div class="d-flex">
+<div class="d-flex" [formGroup]="formGroup">
   <ng-select class="dropdown-select"
              [items]="monthList$ | async"
              bindLabel="label"
              bindValue="value"
              [readonly]="monthReadOnly"
              [clearable]="false"
-             [(ngModel)]="month"
-             placeholder="select month">
+             formControlName="month"
+             placeholder="Select month">
   </ng-select>
   <ng-select class="dropdown-select ms-4"
              [items]="yearList$ | async"
              bindLabel="label"
              bindValue="value"
              [clearable]="false"
-             [(ngModel)]="year"
+             formControlName="year"
              (change)="onChangeYear($event)"
-             placeholder="select year">
+             placeholder="Select year">
   </ng-select>
 </div>
