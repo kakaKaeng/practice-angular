@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./tax-filling.component.scss']
 })
 export class TaxFillingComponent implements OnInit {
-  currentStep = 1;
+  currentStep = 2;
   formTaxModel: FormGroup
   submitted = false;
 
