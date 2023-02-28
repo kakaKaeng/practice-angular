@@ -86,6 +86,62 @@
     </div>
   </div>
 
-  {{formTaxModel.getRawValue() | json}}
+  <div *ngIf="formTaxModel.controls.type_of_filling.value === 'additional'">
+    <div class="row mb-3">
+      <label class="col-12 mb-3 bold mt-2">In case of late filling and payment, or additional filling</label>
+    </div>
+    <div class="row mb-3">
+      <div class="col-8 align-self-center">
+        <label>3.Surcharge <i class="fa-solid fa-circle-question" tooltip="Surcharge"></i></label>
+      </div>
+      <div class="col-4">
+        <div class="input-group">
+          <input class="form-control hide-border-right text-end" formControlName="surcharge" type="text"
+                 autocomplete="off"
+                 (focus)="removeCommas($event)"
+                 (blur)="addCommas($event)"
+                 (input)="removeAlphabet($event)">
+          <div class="input-group-append">
+            <span class="input-group-text">THB</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-8 align-self-center">
+        <label>4.Penalty <i class="fa-solid fa-circle-question" tooltip="Penalty"></i></label>
+      </div>
+      <div class="col-4">
+        <div class="input-group">
+          <input class="form-control hide-border-right text-end" formControlName="penalty" type="text"
+                 autocomplete="off"
+                 (focus)="removeCommas($event)"
+                 (blur)="addCommas($event)"
+                 (input)="removeAlphabet($event)">
+          <div class="input-group-append">
+            <span class="input-group-text">THB</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-8 align-self-center">
+        <label>5.Total amount of VAT, surcharge, and penalty to be remitted (2.+3.+4.)</label>
+      </div>
+      <div class="col-4">
+        <div class="input-group">
+          <input class="form-control hide-border-right text-end" formControlName="penalty" type="text"
+                 autocomplete="off"
+                 [readOnly]="true"
+                 (focus)="removeCommas($event)"
+                 (blur)="addCommas($event)"
+                 (input)="removeAlphabet($event)">
+          <div class="input-group-append">
+            <span class="input-group-text">THB</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </form>
