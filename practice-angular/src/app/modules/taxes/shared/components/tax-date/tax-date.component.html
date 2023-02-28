@@ -1,20 +1,30 @@
 <div class="d-flex" [formGroup]="formGroup">
-  <ng-select class="dropdown-select"
-             [items]="monthList$ | async"
-             bindLabel="label"
-             bindValue="value"
-             [readonly]="monthReadOnly"
-             [clearable]="false"
-             formControlName="month"
-             placeholder="Select month">
-  </ng-select>
-  <ng-select class="dropdown-select ms-4"
-             [items]="yearList$ | async"
-             bindLabel="label"
-             bindValue="value"
-             [clearable]="false"
-             formControlName="year"
-             (change)="onChangeYear($event)"
-             placeholder="Select year">
-  </ng-select>
+  <div>
+    <ng-select class="dropdown-select"
+               [items]="monthList$ | async"
+               bindLabel="label"
+               bindValue="value"
+               [readonly]="monthReadOnly"
+               [clearable]="false"
+               formControlName="month"
+               placeholder="Select month">
+    </ng-select>
+    <div *ngIf="submitted && formGroup.controls.month.invalid">
+      <label class="invalid small">Required.</label>
+    </div>
+  </div>
+  <div>
+    <ng-select class="dropdown-select ms-4"
+               [items]="yearList$ | async"
+               bindLabel="label"
+               bindValue="value"
+               [clearable]="false"
+               formControlName="year"
+               (change)="onChangeYear($event)"
+               placeholder="Select year">
+    </ng-select>
+    <div class="ms-4" *ngIf="submitted && formGroup.controls.year.invalid">
+      <label class="invalid small">Required.</label>
+    </div>
+  </div>
 </div>

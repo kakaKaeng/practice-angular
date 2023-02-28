@@ -15,6 +15,7 @@ export interface Dropdown {
 export class TaxDateComponent {
   @Input() formGroup!: FormGroup;
   @Output() formGroupChange = new EventEmitter<FormGroup>();
+  @Input() submitted: boolean = false;
 
   monthList$: Observable<Dropdown[]>;
   yearList$: Observable<Dropdown[]>;

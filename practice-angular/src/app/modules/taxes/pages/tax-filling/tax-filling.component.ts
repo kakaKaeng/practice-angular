@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-tax-filling',
@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class TaxFillingComponent implements OnInit {
   currentStep = 1;
   formTaxModel: FormGroup
+  submitted = false;
 
   constructor(private fb: FormBuilder) {
     this.formTaxModel = this.initFormTaxModel();
@@ -21,17 +22,21 @@ export class TaxFillingComponent implements OnInit {
   initFormTaxModel(): FormGroup {
     return this.fb.group({
       type_of_filling: ['ordinary', []],
-      month: [null, []],
-      year: [null, []],
+      month: [null, [Validators.required]],
+      year: [null, [Validators.required]],
       additional_type: [null, []],
-      total_tax: [null, []],
-      total_vat: [null, []],
+      total_tax: [null, [Validators.required]],
+      total_vat: [null, [Validators.required]],
       surcharge: [null, []],
       penalty: [null, []],
     });
   }
 
   onSubmit() {
-    console.log(this.formTaxModel.value);
+    this.submitted = true
+    if (this.formTaxModel.valid) {
+      const rawData = this.formTaxModel.getRawValue();
+      this.currentStep = 2;
+    }
   }
 }

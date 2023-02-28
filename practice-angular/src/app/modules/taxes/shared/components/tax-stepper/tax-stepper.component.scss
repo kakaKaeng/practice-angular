@@ -19,6 +19,7 @@
     flex: 1;
 
     &:after {
+      transition: background-color 1s;
       content: "";
       position: relative;
       z-index: -1;
@@ -46,6 +47,9 @@
 
 
 .step-item-circle-active {
+  transition-delay: .3s;
+  transition-property: border;
+  transition-duration: 1s;
   border: 2px #2B3467 solid;
 }
 
@@ -55,6 +59,12 @@
       background-color: #2B3467;
     }
   }
+}
+
+h3, p{
+  transition-delay: .3s;
+  transition-property: color;
+  transition-duration: 1s;
 }
 
 .step-name-active {
