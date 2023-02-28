@@ -57,7 +57,11 @@
     </div>
     <div class="col-4">
       <div class="input-group">
-        <input class="form-control hide-border-right" formControlName="total_tax">
+        <input class="form-control hide-border-right text-end" formControlName="total_tax" type="text"
+               autocomplete="off"
+               (focus)="removeCommas($event)"
+               (blur)="addCommas($event)"
+               (input)="removeAlphabet($event)">
         <div class="input-group-append">
           <span class="input-group-text">THB</span>
         </div>
@@ -70,12 +74,18 @@
     </div>
     <div class="col-4">
       <div class="input-group">
-        <input class="form-control hide-border-right" formControlName="total_vat">
+        <input class="form-control hide-border-right text-end" formControlName="total_vat" type="text"
+               autocomplete="off"
+               (focus)="removeCommas($event)"
+               (blur)="addCommas($event)"
+               (input)="removeAlphabet($event)">
         <div class="input-group-append">
           <span class="input-group-text">THB</span>
         </div>
       </div>
     </div>
   </div>
+
+  {{formTaxModel.getRawValue() | json}}
 
 </form>

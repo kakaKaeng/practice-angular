@@ -18,7 +18,7 @@ import { TaxDateComponent } from './shared/components/tax-date/tax-date.componen
     TaxInputDetailComponent,
     ReviewConfirmComponent,
     TaxStepperComponent,
-    TaxDateComponent
+    TaxDateComponent,
   ],
   imports: [
     CommonModule,
