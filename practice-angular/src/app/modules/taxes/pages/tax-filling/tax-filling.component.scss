@@ -1,3 +1,21 @@
 .content {
   border: 2px #2B3467 solid;
 }
+
+.btn {
+  border-color: #2B3467;
+  width: 80px;
+}
+
+.btn-primary {
+  background-color: #2B3467;
+}
+
+.btn-outline-primary {
+  color: #2B3467;
+
+  &:hover {
+    background-color: #2B3467;
+    color: white;
+  }
+}
