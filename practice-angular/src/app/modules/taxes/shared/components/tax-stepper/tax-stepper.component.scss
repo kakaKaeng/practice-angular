@@ -1,0 +1,49 @@
+@media only screen and (max-width: 500px) {
+  .wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+
+.stepper {
+  display: flex;
+  padding: 0;
+}
+
+.stepper-item {
+  display: flex;
+  align-items: center;
+
+  &:not(:last-child) {
+    flex: 1;
+
+    &:after {
+      content: "";
+      position: relative;
+      z-index: -1;
+      height: 3px;
+      background-color: lightgrey;
+      flex: 1;
+    }
+  }
+}
+
+.wrapper {
+  max-width: 500px;
+  margin: 2rem auto 0;
+}
+
+.step-item-circle {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px #2B3467 solid;
+}
+
+.stepper-name {
+  max-width: 580px;
+  margin: 0 auto 0;
+}
