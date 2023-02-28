@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { retry } from 'rxjs/operators';
 
 @Component({
   selector: 'app-tax-input-detail',
@@ -43,10 +44,25 @@ export class TaxInputDetailComponent {
 
   ordinary() {
     this.formTaxModel.controls.additional_type.setValue(null)
+    this.formTaxModel.controls.penalty.setValue(null)
   }
 
   additional() {
     this.formTaxModel.controls.additional_type.setValue('on_time')
+    this.formTaxModel.controls.penalty.setValue('200')
   }
 
+  onGetSurcharge() {
+    if (this.formTaxModel.controls.type_of_filling.value === 'additional') {
+      this.formTaxModel.controls.surcharge.setValue((+this.formTaxModel.controls.total_tax.value * 0.1).toString());
+    }
+  }
+
+  onGetTotalAmountVat(): string {
+    const total_tax = +this.formTaxModel.controls.total_tax.value || 0
+    const surcharge = +this.formTaxModel.controls.surcharge.value || 0
+    const penalty = +this.formTaxModel.controls.penalty.value || 0
+
+    return (total_tax + surcharge + penalty).toString();
+  }
 }

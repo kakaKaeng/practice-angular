@@ -63,7 +63,7 @@
                autocomplete="off"
                (focus)="removeCommas($event)"
                (blur)="addCommas($event)"
-               (input)="removeAlphabet($event)">
+               (input)="removeAlphabet($event); onGetSurcharge()">
         <div class="input-group-append">
           <span class="input-group-text">THB</span>
         </div>
@@ -106,6 +106,7 @@
         <div class="input-group">
           <input class="form-control hide-border-right text-end" formControlName="surcharge" type="text"
                  autocomplete="off"
+                 [readOnly]="true"
                  (focus)="removeCommas($event)"
                  (blur)="addCommas($event)"
                  (input)="removeAlphabet($event)">
@@ -123,6 +124,7 @@
         <div class="input-group">
           <input class="form-control hide-border-right text-end" formControlName="penalty" type="text"
                  autocomplete="off"
+                 [readOnly]="true"
                  (focus)="removeCommas($event)"
                  (blur)="addCommas($event)"
                  (input)="removeAlphabet($event)">
@@ -138,7 +140,7 @@
       </div>
       <div class="col-4">
         <div class="input-group">
-          <input class="form-control hide-border-right text-end" formControlName="penalty" type="text"
+          <input class="form-control hide-border-right text-end" type="text" [value]="onGetTotalAmountVat()"
                  autocomplete="off"
                  [readOnly]="true"
                  (focus)="removeCommas($event)"

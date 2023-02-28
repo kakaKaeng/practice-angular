@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TaxModel } from '../../shared/models/tax.models';
 
 @Component({
   selector: 'app-tax-filing',
@@ -7,9 +8,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./tax-filing.component.scss']
 })
 export class TaxFilingComponent implements OnInit {
-  currentStep = 2;
+  currentStep = 1;
   formTaxModel: FormGroup
   submitted = false;
+  formTaxModelData?: TaxModel
 
   constructor(private fb: FormBuilder) {
     this.formTaxModel = this.initFormTaxModel();
@@ -36,6 +38,21 @@ export class TaxFilingComponent implements OnInit {
     this.submitted = true
     if (this.formTaxModel.valid) {
       const rawData = this.formTaxModel.getRawValue();
+      rawData.total_tax = rawData.total_tax.replace(/[^0-9.]/g, '').replace(/,/g, '')
+      rawData.total_vat = rawData.total_vat.replace(/[^0-9.]/g, '').replace(/,/g, '')
+      rawData.surcharge = rawData.surcharge ? rawData.surcharge.replace(/[^0-9.]/g, '') : null;
+      rawData.penalty = rawData.penalty ? rawData.penalty.replace(/[^0-9.]/g, '') : null;
+
+      rawData.total_amount_vat = parseFloat(rawData.total_tax)
+      if (rawData.surcharge) {
+        rawData.total_amount_vat += parseFloat(rawData.surcharge)
+      }
+      if (rawData.penalty) {
+        rawData.total_amount_vat += parseFloat(rawData.penalty)
+      }
+
+      rawData.total_amount_vat = rawData.total_amount_vat.toString();
+      this.formTaxModelData = rawData;
       this.currentStep = 2;
     }
   }

@@ -8,7 +8,7 @@
     <ng-container [ngSwitch]="currentStep">
       <app-tax-input-detail *ngSwitchCase="1" [(formTaxModel)]="formTaxModel" [submitted]="submitted">
       </app-tax-input-detail>
-      <app-review-confirm *ngSwitchCase="2" [formTaxModel]="formTaxModel.getRawValue()">
+      <app-review-confirm *ngSwitchCase="2" [formTaxModel]="formTaxModelData">
       </app-review-confirm>
     </ng-container>
   </div>

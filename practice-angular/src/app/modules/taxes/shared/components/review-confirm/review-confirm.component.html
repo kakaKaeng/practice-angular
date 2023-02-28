@@ -12,7 +12,7 @@
       <label class="bold">VAT Month</label>
     </div>
     <div class="col-10">
-
+      {{getDateDisplay()}}
     </div>
   </div>
   <h3 class="m-0 mt-4">Tax Computation</h3>
@@ -22,7 +22,7 @@
       <label class="bold">total value of taxable electronic service exclusive VAT</label>
     </div>
     <div class="col-4 text-end align-self-center">
-      1312313213123123123 THB
+      {{addCommas(formTaxModel.total_tax)}} THB
     </div>
   </div>
   <div class="row mb-3">
@@ -31,7 +31,7 @@
       <label>(7% of Total value of taxable electronic service exclusive VAT)</label>
     </div>
     <div class="col-4 text-end align-self-center">
-      13213123123123 THB
+      {{addCommas(formTaxModel.total_vat)}} THB
     </div>
   </div>
   <div class="row mb-3">
@@ -39,7 +39,7 @@
       <label class="bold">Total Amount Payable</label>
     </div>
     <div class="col-4 text-end align-self-center bold">
-      13213123123123 THB
+      {{addCommas(formTaxModel.total_amount_vat)}} THB
     </div>
   </div>
   <h3 class="m-0 mt-4">Declaration</h3>

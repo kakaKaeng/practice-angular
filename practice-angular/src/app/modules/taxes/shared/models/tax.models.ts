@@ -3,8 +3,9 @@ export interface TaxModel {
   month: number;
   year: number;
   additional_type?: string;
-  total_tax: number;
-  total_vat: number;
-  surcharge?: number;
-  penalty?: number;
+  total_tax: string;
+  total_vat: string;
+  surcharge?: string;
+  penalty?: string;
+  total_amount_vat?: string;
 }
