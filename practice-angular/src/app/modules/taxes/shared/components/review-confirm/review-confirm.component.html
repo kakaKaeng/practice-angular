@@ -2,43 +2,45 @@
   <h3 class="m-0">Tax Filling Detail</h3>
   <hr>
   <div class="row mb-3">
-    <div class="col-2">
+    <div class="col-sm-6 col-md-2">
       <label class="bold">Type of filing</label>
     </div>
-    <div class="col-10">
+    <div class="col-sm-6 col-md-10">
       {{formTaxModel.type_of_filling === 'ordinary' ? 'Ordinary Filing' : 'Additional Filing'}}
     </div>
-    <div class="col-2">
+  </div>
+  <div class="row mb-3">
+    <div class="col-sm-6 col-md-2">
       <label class="bold">VAT Month</label>
     </div>
-    <div class="col-10">
+    <div class="col-sm-6 col-md-10">
       {{getDateDisplay()}}
     </div>
   </div>
   <h3 class="m-0 mt-4">Tax Computation</h3>
   <hr>
   <div class="row mb-3">
-    <div class="col-8">
+    <div class="col-sm-12 col-md-8">
       <label class="bold">total value of taxable electronic service exclusive VAT</label>
     </div>
-    <div class="col-4 text-end align-self-center">
+    <div class="col-sm-12 col-md-4 text-end align-self-center">
       {{addCommas(formTaxModel.total_tax)}} THB
     </div>
   </div>
   <div class="row mb-3">
-    <div class="col-8">
+    <div class="col-sm-12 col-md-8">
       <label class="bold">Total VAT to be remitted</label>
       <label>(7% of Total value of taxable electronic service exclusive VAT)</label>
     </div>
-    <div class="col-4 text-end align-self-center">
+    <div class="col-sm-12 col-md-4 text-end align-self-center">
       {{addCommas(formTaxModel.total_vat)}} THB
     </div>
   </div>
   <div class="row mb-3">
-    <div class="col-8">
+    <div class="col-sm-12 col-md-8">
       <label class="bold">Total Amount Payable</label>
     </div>
-    <div class="col-4 text-end align-self-center bold">
+    <div class="col-sm-12 col-md-4 text-end align-self-center bold">
       {{addCommas(formTaxModel.total_amount_vat)}} THB
     </div>
   </div>
